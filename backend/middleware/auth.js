@@ -1,9 +1,5 @@
 import jwt from "jsonwebtoken";
-import dotenv from "dotenv";
-
-dotenv.config();
-
-const JWT_SECRET = process.env.JWT_SECRET || "parkease_super_secret_key_2026";
+import { JWT_SECRET } from "../config/env.js";
 
 export const authenticateToken = (req, res, next) => {
   const authHeader = req.headers["authorization"];

@@ -1,10 +1,6 @@
 import jwt from "jsonwebtoken";
 import pool from "../config/db.js";
-import dotenv from "dotenv";
-
-dotenv.config();
-
-const JWT_SECRET = process.env.JWT_SECRET;
+import { JWT_SECRET } from "../config/env.js";
 
 export const register = async (req, res) => {
   try {
@@ -59,6 +55,11 @@ export const register = async (req, res) => {
     });
   } catch (error) {
     console.error("Registration error:", error);
+    if (error.code === "23505") {
+      return res
+        .status(409)
+        .json({ message: "User already exists with this email" });
+    }
     res.status(500).json({ message: "Server error" });
   }
 };
