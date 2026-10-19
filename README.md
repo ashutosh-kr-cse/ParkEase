@@ -104,7 +104,20 @@ ParkEase/
 
 ### Steps
 
-```bash
+```
+
+### Backend environment variables
+
+Set these variables in `backend/.env` locally and in the Render backend service:
+
+```text
+DATABASE_URL=<your PostgreSQL provider connection string>
+JWT_SECRET=<a long random secret>
+```
+
+Use the connection string provided by your PostgreSQL provider for `DATABASE_URL`.
+Generate `JWT_SECRET` independently, keep it private, and use the same value across
+backend restarts. Changing it invalidates existing login tokens.bash
 # 1. Clone repository
 git clone https://github.com/smurfstack-dev/ParkEase.git
 cd ParkEase

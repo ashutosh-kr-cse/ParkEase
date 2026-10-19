@@ -339,7 +339,7 @@ class Auth {
         },
       );
 
-      const data = await response.json();
+      const data = await response.json().catch(() => ({}));
 
       if (response.ok) {
         localStorage.setItem("token", data.token);
@@ -388,7 +388,7 @@ class Auth {
         },
       );
 
-      const data = await response.json();
+      const data = await response.json().catch(() => ({}));
 
       if (response.ok) {
         localStorage.setItem("token", data.token);

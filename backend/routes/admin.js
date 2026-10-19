@@ -1,9 +1,9 @@
 import express from "express";
 import jwt from "jsonwebtoken";
 import pool from "../config/db.js";
+import { JWT_SECRET } from "../config/env.js";
 
 const router = express.Router();
-const JWT_SECRET = process.env.JWT_SECRET || "parkease_super_secret_key_2024";
 
 // Simple token verification
 const verifyToken = (req, res, next) => {
