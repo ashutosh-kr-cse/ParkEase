@@ -133,18 +133,14 @@ class ParkingMap {
       markerZoomAnimation: false,
     }).setView([centerLat, centerLng], 13);
 
-    L.tileLayer(
-      "https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png",
-      {
-        attribution:
-          '&copy; <a href="https://www.openstreetmap.org/copyright">OSM</a> contributors',
-        subdomains: "abcd",
-        maxZoom: 18,
-        minZoom: 10,
-        updateWhenIdle: true,
-        updateWhenZooming: false,
-      },
-    ).addTo(this.map);
+    L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+      attribution:
+        '&copy; <a href="https://www.openstreetmap.org/copyright">OSM</a> contributors',
+      maxZoom: 19,
+      minZoom: 10,
+      updateWhenIdle: true,
+      updateWhenZooming: false,
+    }).addTo(this.map);
 
     if (this.userLocation || savedCoordinates) {
       L.marker([centerLat, centerLng], {
